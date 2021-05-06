@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>To Do List</title>
+</head>
+<body>
+  
+  <div id="app" class="container">
+
+    <div class="wrapper">
+
+      <header class="logo">
+
+        <img src="assets/img/slack-imgs.png" alt="">
+        
+        
+      </header>
+      <nav>
+        
+
+        <input v-model="strTodo"  type="text" placeholder="Nuovo Todo">
+
+        <button @click="addTodo"> Aggiungi</button>
+        <h4 v-if="alertActive"
+        >Attenzione: inserire testo più lungo!</h4>
+        
+
+        
+
+      </nav>
+
+      <main>
+        
+        <ul>
+
+          <li v-for="(todo, index) in todos"
+              :class="todo.checked ? 'checked' : null"
+              @click="todo.checked = !todo.checked"
+          >
+            {{todo.todo}}
+            <i class="fas fa-times-circle"
+                @click.stop="removeTodo"></i>
+          </li>
+         
+        </ul>
+      </main>
+    </div>
+
+  </div>
+
+<script src="assets/js/script.js" charset="utf-8"></script>  
+</body>
+</html>
